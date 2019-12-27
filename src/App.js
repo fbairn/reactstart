@@ -6,7 +6,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import './App.css';
-import Navbar from './components/layout/Navbar';
+import NavBar from './components/layout/NavBar';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -16,9 +17,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Fragment>
-        <Navbar />
-      </Fragment>
+      <Router>
+        <Fragment>
+          <NavBar />
+        </Fragment>
+      </Router>
     </Provider>
   );
 }
