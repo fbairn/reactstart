@@ -1,6 +1,8 @@
 import {
   SET_NAV,
-  CLEAR_NAV
+  CLEAR_NAV,
+  ADD_NAV,
+  REMOVE_NAV
 } from '../actions/types';
 
 const initialState = {
@@ -46,6 +48,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         navItems: action.payload
+      };
+    case ADD_NAV:
+      return {
+        ...state,
+        navItems: [...state.navItems, action.payload]
+      };
+    case REMOVE_NAV:
+      return {
+        ...state,
+        navItems: state.navItems.filter(item => item.id !== action.payload)
       };
     case CLEAR_NAV:
       return {
